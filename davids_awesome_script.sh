@@ -1,11 +1,13 @@
 #!/bin/bash
 
 # Check if solved folder exists
+
+FOLDER=${1}
+
 for d in */ ; do
-  if [ -d "$d/Solved" ]
+  if [ -d "$d/Solved" -a -d "../../../../UCSD201807FSF5/$FOLDER/01-Activities/$d" -a ! -d "../../../../UCSD201807FSF5/$FOLDER/01-Activities/$d/Solved" ]
   then
-      echo "Directory $d/Solved exists."
-  else
-      echo "Error: Directory $d/Solved does not exist."
+    cp -r "$d/Solved" ../../../../UCSD201807FSF5/$FOLDER/01-Activities/$d
+    # echo "Directory $d'Solved' exists and $d exists in gitlab."
   fi
 done
