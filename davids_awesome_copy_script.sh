@@ -1,9 +1,14 @@
 #!/bin/bash
 
+# Users first input to define start of range
 START=$1
+# Users second input to define end of range
 END=$2
+# Directory index variable
 INDEX=0
+# Array to hold user input range
 declare -a arr
+# Push user range int array
 for ((i=$START;i<=$END;i++)); do
   arr+=($i)
 done
