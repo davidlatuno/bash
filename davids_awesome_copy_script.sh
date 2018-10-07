@@ -1,5 +1,39 @@
 #!/bin/bash
 
+# Get Basename
+PWD=`pwd`
+NAME=`basename $PWD`
+
+# Exit if only one argument passed
+if [ $# -eq 1 ]
+  then
+    echo "not enough arguments supplied"
+    exit 1
+fi
+
+# Exit if too many arguments passed
+if [[ $# > 2 ]]
+  then
+    echo "too many arguments supplied"
+    exit 1
+fi
+
+# Copy all the folders if no arguments passed
+if [ $# -eq 0 ]
+  then
+    # Move into Activities Folder
+    cd 01-Activities
+
+    # For All Activities get the solved (do logic to see if copying is necessary/possible) and copy it to gitlab folder
+    for d in */ ; do
+      if [ -d "$d/Solved" -a -d "../../../../UCSD201807FSF5/$NAME/01-Activities/$d" -a ! -d "../../../../UCSD201807FSF5/$NAME/01-Activities/$d/Solved" ]
+      then
+        cp -r "$d/Solved" ../../../../UCSD201807FSF5/$NAME/01-Activities/$d
+      fi
+    done
+    exit 1
+fi
+
 # Users first input to define start of range
 START=$1
 # Users second input to define end of range
@@ -12,10 +46,6 @@ declare -a arr
 for ((i=$START;i<=$END;i++)); do
   arr+=($i)
 done
-
-# Get Basename
-PWD=`pwd`
-NAME=`basename $PWD`
 
 # Move into Activities Folder
 cd 01-Activities
