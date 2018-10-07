@@ -42,7 +42,7 @@ END=$2
 INDEX=0
 # Array to hold user input range
 declare -a arr
-# Push user range int array
+# Push user range into array
 for ((i=$START;i<=$END;i++)); do
   arr+=($i)
 done
