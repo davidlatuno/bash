@@ -29,8 +29,10 @@ if [ $# -eq 0 ]
       if [ -d "$d/Solved" -a -d "../../../../UCSD201807FSF5/$NAME/01-Activities/$d" -a ! -d "../../../../UCSD201807FSF5/$NAME/01-Activities/$d/Solved" ]
       then
         cp -r "$d/Solved" ../../../../UCSD201807FSF5/$NAME/01-Activities/$d
+        echo "${d}Solved copied over"
       fi
     done
+    echo "All Done!"
     exit 1
 fi
 
@@ -60,9 +62,12 @@ for d in */ ; do
       if [ -d "$d/Solved" -a -d "../../../../UCSD201807FSF5/$NAME/01-Activities/$d" -a ! -d "../../../../UCSD201807FSF5/$NAME/01-Activities/$d/Solved" ]
       then
         cp -r "$d/Solved" ../../../../UCSD201807FSF5/$NAME/01-Activities/$d
+        echo "${d}Solved copied over"
       fi
     fi
   done
   # Increment directory index variable
   INDEX=$((INDEX+1))
 done
+echo "All Done!"
+exit 1

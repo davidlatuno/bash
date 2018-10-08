@@ -4,6 +4,8 @@ for d in */ ; do
   if [ -d "$d/Solved" ]
   then
     rm -r "$d/Solved"
-    # echo "Directory $d'Solved' exists."
+    echo "deleted ${d}Solved"
   fi
 done
+echo "All Done!"
+exit 1
