@@ -4,17 +4,32 @@
 PWD=`pwd`
 NAME=`basename $PWD`
 
+# Users first input to define start of range
+START=$1
+# Users second input to define end of range
+END=$2
+# Directory index variable
+INDEX=0
+# Array to hold user input range
+declare -a arr
+
 # Exit if only one argument passed
 if [ $# -eq 1 ]
   then
-    echo "not enough arguments supplied"
+    echo "Not Enough Arguments Supplied"
     exit 1
 fi
 
 # Exit if too many arguments passed
 if [[ $# > 2 ]]
   then
-    echo "too many arguments supplied"
+    echo "Too Many Arguments Supplied"
+    exit 1
+fi
+
+if [[ $START > $END ]]
+  then
+    echo "Not a Valid Range"
     exit 1
 fi
 
@@ -36,14 +51,6 @@ if [ $# -eq 0 ]
     exit 1
 fi
 
-# Users first input to define start of range
-START=$1
-# Users second input to define end of range
-END=$2
-# Directory index variable
-INDEX=0
-# Array to hold user input range
-declare -a arr
 # Push user range into array
 for ((i=$START;i<=$END;i++)); do
   arr+=($i)
