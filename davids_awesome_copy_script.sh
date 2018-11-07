@@ -27,7 +27,7 @@ if [[ $# > 2 ]]
     exit 1
 fi
 
-if [[ $START > $END ]]
+if (( $START > $END ))
   then
     echo "Not a Valid Range"
     exit 1
