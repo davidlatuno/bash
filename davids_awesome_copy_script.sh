@@ -7,8 +7,7 @@ NAME=`basename $PWD`
 # Users first input to define start of range
 START=$1
 # Users second input to define end of range
-# Cant figure out why it cuts out the last folder in the array so I increased it by one
-END=$2+1
+END=$2
 # Directory index variable
 INDEX=0
 # Array to hold user input range
