@@ -7,7 +7,8 @@ NAME=`basename $PWD`
 # Users first input to define start of range
 START=$1
 # Users second input to define end of range
-END=$2
+# Cant figure out why it cuts out the last folder in the array so I increased it by one
+END=$2+1
 # Directory index variable
 INDEX=0
 # Array to hold user input range
@@ -62,7 +63,7 @@ cd 01-Activities
 # For All Activities get the solved (do logic to see if copying is necessary/possible) and copy it to gitlab folder
 for d in */ ; do
   # Iterate through the user defined a range of directories
-  for ((i=0;i<=${#arr[@]};i++)); do
+  for ((i=0;i<${#arr[@]};i++)); do
     # If this folder is in the range of user input
     if [ "$((INDEX+1))" == "${arr[$i]}" ] ; then
       # logic to see if copying is necessary/possible
