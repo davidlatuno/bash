@@ -41,9 +41,9 @@ if [ $# -eq 0 ]
 
     # For All Activities get the solved (do logic to see if copying is necessary/possible) and copy it to gitlab folder
     for d in */ ; do
-      if [ -d "$d/Solved" -a -d "../../../../UCSD201807FSF5/$NAME/01-Activities/$d" -a ! -d "../../../../UCSD201807FSF5/$NAME/01-Activities/$d/Solved" ]
+      if [ -d "$d/Solved" -a -d "../../../../UCSD201902FSF3/$NAME/01-Activities/$d" -a ! -d "../../../../UCSD201902FSF3/$NAME/01-Activities/$d/Solved" ]
       then
-        cp -r "$d/Solved" ../../../../UCSD201807FSF5/$NAME/01-Activities/$d
+        cp -r "$d/Solved" ../../../../UCSD201902FSF3/$NAME/01-Activities/$d
         echo "${d}Solved copied over"
       fi
     done
@@ -66,9 +66,9 @@ for d in */ ; do
     # If this folder is in the range of user input
     if [ "$((INDEX+1))" == "${arr[$i]}" ] ; then
       # logic to see if copying is necessary/possible
-      if [ -d "$d/Solved" -a -d "../../../../UCSD201807FSF5/$NAME/01-Activities/$d" -a ! -d "../../../../UCSD201807FSF5/$NAME/01-Activities/$d/Solved" ]
+      if [ -d "$d/Solved" -a -d "../../../../UCSD201902FSF3/$NAME/01-Activities/$d" -a ! -d "../../../../UCSD201902FSF3/$NAME/01-Activities/$d/Solved" ]
       then
-        cp -r "$d/Solved" ../../../../UCSD201807FSF5/$NAME/01-Activities/$d
+        cp -r "$d/Solved" ../../../../UCSD201902FSF3/$NAME/01-Activities/$d
         echo "${d}Solved copied over"
       fi
     fi
